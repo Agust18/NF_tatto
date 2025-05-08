@@ -28,9 +28,7 @@ h5{
 
 @font-face {
     font-family: 'Gram';
-    src: url('../assets/fonts/Gram.woff2') format('woff2'),
-         url('../assets/fonts/Gram.woff') format('woff'),
-         url('../assets/fonts/Gram.ttf') format('truetype');
+    src: url('../assets/fonts/Gram.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -264,7 +262,7 @@ footer {
 /* Estilo para íconos en dispositivos móviles */
 @media (max-width: 768px) {
     body{
-        overflow-x: hidden;
+        overflow-x: visible;
     }
     .icon a {
         font-size: 35px; /* Reduce el tamaño de los iconos en móviles */
@@ -370,5 +368,13 @@ footer {
     color: #ffffff;
   }
   
+
+  
+
+
+
+
+
+
 
   
