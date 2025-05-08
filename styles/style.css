@@ -322,3 +322,45 @@ footer {
         margin-right: 0;
     }
 }
+
+
+/* modal */
+
+.custom-modal {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .logo-modal {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+  }
+  
+  .modal-header {
+    background-color: #1e1e1e;
+    border-bottom: none;
+  }
+  
+  .modal-footer {
+    border-top: none;
+  }
+  
+  .modal-title {
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+  
+  .btn-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #ffffff;
+  }
+  

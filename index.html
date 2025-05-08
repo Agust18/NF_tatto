@@ -1,4 +1,4 @@
-""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeInDown">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img class="logo" src="assets/imagenes/logo.png" alt="Logo">
+                <img class="logo" src="imagenes/logo.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -71,6 +71,31 @@
   </div>
 </main>
 
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white custom-modal animate__animated animate__fadeIn">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-uppercase" id="miModalLabel"><strong>Bienvenido a NachoFernandezTatto</strong></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="assets/imagenes/fondo.png" style="object-fit: cover;" class="logo-modal mx-auto d-block animate__animated animate__zoomIn" alt="Logo">
+          <p class="text-center mt-3">
+            Gracias por visitar mi página. Espero que disfrutes la experiencia y encuentres lo que buscás. 
+            ¡No olvides revisar la galería de tatuajes y no dudes en consultar!
+          </p>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Explorar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
 <footer>
     <div class="line-footer"></div> 
     <div class="icon animate__animated animate__bounceIn">
@@ -89,7 +114,7 @@
     myModal.show();
   });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-    
