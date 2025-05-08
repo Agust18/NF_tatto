@@ -263,6 +263,9 @@ footer {
 
 /* Estilo para íconos en dispositivos móviles */
 @media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
     .icon a {
         font-size: 35px; /* Reduce el tamaño de los iconos en móviles */
         margin: 0 15px;
