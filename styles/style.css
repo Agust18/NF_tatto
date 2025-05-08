@@ -314,6 +314,7 @@ footer {
       overflow-x: scroll;
       gap: 10px;
       padding: 10px;
+      scroll-behavior: smooth;
     }
   
     .panel {
