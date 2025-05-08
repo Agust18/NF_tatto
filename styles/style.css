@@ -1,0 +1,290 @@
+@font-face {
+    font-family: 'Houstonville';
+    src: url('../assets/fonts/Houstonville.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gram';
+    src: url('../assets/fonts/Gram.woff2') format('woff2'),
+         url('../assets/fonts/Gram.woff') format('woff'),
+         url('../assets/fonts/Gram.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: #3d3d3d;
+    /* background-image: url("../imagenes/WhatsApp\ Image\ 2025-04-11\ at\ 1.16.21\ PM.jpeg"); */
+    background-size: cover;  /*se ajusta al tamaño sin recortar*/
+    backdrop-filter: blur(15px);
+    background-position: center; 
+    background-repeat: repeat;
+    min-height: 100vh; /* ✅ Mejora compatibilidad en móviles */
+    margin: 0;      /* saca espacios extras */
+}
+
+.navbar{
+    font-family: Houstonville;
+    font-size: 1.8rem;
+}
+
+
+
+.logo{
+    max-height: 40px;
+    background-color: #E46670;
+    padding:5px;
+    border-radius: 50%;
+    margin-left: 10px;
+    
+
+
+}
+
+.main{
+    margin: 20px;
+    
+    
+}
+
+
+
+.carousel-item img {
+    height: 400px;
+    width: 100%;
+    /* box-shadow: 0 0 10px #E46670; */
+    object-fit: cover;
+   
+   
+
+    
+        
+}
+
+.accordion-gallery {
+    display: flex;
+    height: 40vh; /* ✅ Altura relativa a la pantalla */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 15px;
+    gap: 10px; /* Agrega separación entre los paneles */
+    
+}
+
+.accordion-gallery .panel {
+    flex: 1;
+    overflow: hidden;
+    transition: all 0.5s ease; /* Transición más fluida */
+    position: relative;
+    margin-left: -50px; /* Las imágenes empiezan un poco encimadas */
+    
+}
+
+.accordion-gallery .panel:first-child {
+    margin-left: 0; /* Evita que la primera imagen se encime */
+}
+
+.accordion-gallery .panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 25px;
+    border: solid 3px #e466706b;
+}
+
+.accordion-gallery .panel:hover {
+    flex: 3;
+    margin-left: 10px; /* La imagen se separa al hacer hover */
+    z-index: 2;
+}
+
+.accordion-gallery .panel:hover img {
+    transform: scale(1.05); /* Se hace un pequeño zoom en la imagen */
+}
+
+
+
+.mi-boton{
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.137); /* negro con transparencia */
+    border: none;
+}
+
+.mi-boton:hover{
+    background-color: #E46670;
+}
+
+
+.container{
+    justify-content: center;
+    display: flex;
+    flex-direction: row; /* o row si los querés uno al lado del otro */
+    object-fit: cover;
+    margin-top: 20px;
+    flex-wrap: wrap; /* ✅ Permite que los elementos se bajen si no entran */
+    gap: 50px;
+    /* margin-left: 0px;
+    margin-right: 0px; */
+
+}
+   
+    
+ 
+
+/* img {
+    transition: transform 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.03);
+  } */
+
+  
+
+
+@media (max-width: 768px) {
+    .accordion-gallery {
+        flex-direction: column;
+    }
+    .panel {
+        width: 50%;
+        margin-left: 0; /* Sin margen negativo en pantallas pequeñas */
+    }
+}
+
+.cont-video {
+    justify-content: space-between; /* Distribuye los videos con espacio entre ellos */
+    display: flex; /* Hace que los videos se acomoden en una fila (horizontales) */
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor sin distorsionarse */
+    gap: 10px; /* Agrega un espacio de 10px entre los videos */
+    
+}
+
+.cont-video video {
+    height: 300px; /* Establece la altura de cada video a 300px */
+    overflow: hidden; /* Oculta cualquier contenido que sobresalga del contenedor */
+    border-radius: 10px; /* Redondea las esquinas del video */
+    margin-top: 15px; /* Agrega un espacio de 15px en la parte superior de cada video */
+    border: solid 3px #e466706b;
+    
+}
+
+@media (max-width: 768px) {
+    .cont-video {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .cont-video video {
+      width: 90%;
+      height: auto;
+    }
+}
+
+.card{
+    box-shadow: 0 0 15px #E46670; /* Resplandor amarillo */
+    border: #3d3d3d;
+   
+}
+
+.card img{
+    object-fit: cover;
+    height: 100%;
+}
+
+.card-text{
+    text-align: center;
+    font-weight: bold;
+    color: #E46670;
+    
+    border: solid 2px;
+}
+
+/* Línea de separación estilizada */
+.line-footer {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #E46670, #000);
+    margin: 30px 0;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para darle más profundidad */
+}
+
+/* Estilo para los iconos */
+.icon {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.icon a {
+    text-decoration: none;
+    margin: 0 20px; /* Espaciado entre los iconos */
+    font-size: 45px; /* Aumenta el tamaño de los iconos */
+    color: #fff; /* Blanco para los íconos por defecto */
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Efecto hover */
+.icon a:hover {
+    transform: scale(1.15); /* Aumenta el tamaño del icono */
+    color: #E46670; /* Cambia el color a un tono vibrante */
+    box-shadow: 0 0 15px rgba(228, 102, 112, 0.7); /* Resplandor sutil alrededor del icono */
+}
+
+/* Estilos para los iconos específicos */
+.icon a:nth-child(1):hover {
+    color: #f44136; /* Rojo intenso para Instagram */
+}
+
+.icon a:nth-child(2):hover {
+    color: #25d366; /* Verde para WhatsApp */
+}
+
+/* Fondo oscuro y efectos para el footer */
+footer {
+    background-color: #3d3d3d;
+    padding: 30px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3); /* Sombra superior para efecto flotante */
+}
+
+/* Animación de rebote para los íconos */
+.icon a {
+    animation: bounce 1.5s infinite alternate;
+}
+
+/* Animación tipo rebote para los iconos */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Estilo para íconos en dispositivos móviles */
+@media (max-width: 768px) {
+    .icon a {
+        font-size: 35px; /* Reduce el tamaño de los iconos en móviles */
+        margin: 0 15px;
+    }
+
+    .line-footer {
+        height: 2px; /* Reduce el tamaño de la línea de separación en móviles */
+    }
+}
+
+
+
+
+
+
+  

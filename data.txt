@@ -1,0 +1,4 @@
+imagenes de turno, recuadro mismo color que navbar, tipografia vandalo color rojo del logo.
+armar pasos de turnos.
+texto de info personal 
+tattos, carrousel se vea tipo feed. y agg mas fotos y videos
