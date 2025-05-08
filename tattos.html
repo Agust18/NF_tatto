@@ -1,21 +1,23 @@
-<!DOCTYPE html>
+""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
     <link href="styles/style.css" rel="stylesheet">
     <title>Tattos</title>
 </head>
 <body>
 <header>
     <!-- <div class="container"> -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeInDown">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="NF.html">
-                        <img class="logo "src="imagenes/logo.png" alt="Logo" class="img-fluid" >
+                        <img class="logo animate__animated animate__fadeInLeft" src="imagenes/logo.png" alt="Logo" class="img-fluid">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -24,13 +26,13 @@
                     <div class="collapse navbar-collapse" id="menuNavbar">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="NF.html">Sobre Mi</a>
+                                <a class="nav-link active animate__animated animate__fadeInRight" href="NF.html">Sobre Mi</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="tattos.html">Tattos</a>
+                                <a class="nav-link animate__animated animate__fadeInRight" href="tattos.html">Tattos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="turnos.html">Turnos</a>
+                                <a class="nav-link animate__animated animate__fadeInRight" href="turnos.html">Turnos</a>
                             </li>
                         </ul>
                     </div>
@@ -40,44 +42,73 @@
 </header>
 <main>
 <div class="accordion-gallery">
-  <div class="panel">
-    <img src="imagenes/img1.jpeg" alt="Imagen 1">
+  <div class="panel animate__animated animate__fadeInUp">
+    <img src="assets/imagenes/img1.jpeg" alt="Imagen 1">
   </div>
-  <div class="panel">
-    <img src="imagenes/img2.jpeg" alt="Imagen 2">
+  <div class="panel animate__animated animate__fadeInUp animate__delay-1s">
+    <img src="assets/imagenes/img2.jpeg" alt="Imagen 2">
   </div>
-  <div class="panel">
-    <img src="imagenes/img3.jpeg" alt="Imagen 3">
+  <div class="panel animate__animated animate__fadeInUp animate__delay-2s">
+    <img src="assets/imagenes/img3.jpeg" alt="Imagen 3">
   </div>
-  <div class="panel">
-    <img src="imagenes/img4.jpeg" alt="Imagen 4">
+  <div class="panel animate__animated animate__fadeInUp animate__delay-3s">
+    <img src="assets/imagenes/img4.jpeg" alt="Imagen 4">
   </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-3s">
+    <img src="assets/imagenes/img5.jpeg" alt="Imagen 4">
+  </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-3s">
+    <img src="assets/imagenes/img6.jpeg" alt="Imagen 4">
+  </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-3s">
+    <img src="assets/imagenes/img7.jpeg" alt="Imagen 4">
+  </div>
+ 
 </div>
 
 <div class="cont-video">
-  <div class="video-item">
+  <div class="video-item animate__animated animate__fadeInUp">
     <video src="videos/7.mp4" class="video" autoplay loop muted></video>
   </div>
-  <div class="video-item">
-    <video src="videos/8.mp4" class="video" autoplay loop muted></video>
+  <div class="video-item animate__animated animate__fadeInUp animate__delay-2s">
+    <video src="assets/videos/9.mp4" class="video" autoplay loop muted></video>
   </div>
-  <div class="video-item">
-    <video src="videos/9.mp4" class="video" autoplay loop muted></video>
+  <div class="video-item animate__animated animate__fadeInUp animate__delay-3s">
+    <video src="assets/videos/nuevo1.mp4" class="video" autoplay loop muted></video>
   </div>
-  <div class="video-item">
-    <video src="" class="video" autoplay loop muted></video>
+  <div class="video-item animate__animated animate__fadeInUp animate__delay-4s">
+    <video src="assets/videos/5.mp4" class="video" autoplay loop muted></video>
   </div>
-  <div class="video-item">
-    <video src="videos/5.mp4" class="video" autoplay loop muted></video>
+  <div class="video-item animate__animated animate__fadeInUp animate__delay-5s">
+    <video src="assets/videos/2.mp4" class="video" autoplay loop muted></video>
   </div>
-  <div class="video-item">
-    <video src="videos/2.mp4" class="video" autoplay loop muted></video>
-  </div>
-  <div class="video-item">
-    <video src="videos/3.mp4" class="video" autoplay loop muted></video>
+  <div class="video-item animate__animated animate__fadeInUp animate__delay-6s">
+    <video src="assets/videos/3.mp4" class="video" autoplay loop muted></video>
   </div>
 </div>
 </main>
+
+<div class="accordion-gallery">
+  <div class="panel animate__animated animate__fadeInUp">
+    <img src="assets/imagenes/nueva1.jpeg" alt="Imagen 1">
+  </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-1s">
+    <img src="assets/imagenes/nueva2.jpeg" alt="Imagen 2">
+  </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-2s">
+    <img src="assets/imagenes/nueva3.jpeg" alt="Imagen 3">
+  </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-2s">
+    <img src="assets/imagenes/nueva4.jpeg" alt="Imagen 3">
+  </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-2s">
+    <img src="assets/imagenes/photo3.jpeg" alt="Imagen 3">
+  </div>
+  <div class="panel animate__animated animate__fadeInUp animate__delay-2s">
+    <img src="assets/imagenes/photo2.jpeg" alt="Imagen 3">
+  </div>
+  
+</div>
 
 <!-- <footer>
     <div class="icon ">
@@ -88,6 +119,6 @@
     </div>  
 </footer> -->
 <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
-</html>
+</html>""

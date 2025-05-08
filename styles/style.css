@@ -23,6 +23,7 @@ body{
     background-repeat: repeat;
     min-height: 100vh; /* ✅ Mejora compatibilidad en móviles */
     margin: 0;      /* saca espacios extras */
+    overflow-x: hidden;
 }
 
 .navbar{
@@ -283,8 +284,41 @@ footer {
 }
 
 
+/* style.css */
+@media (max-width: 768px) {
+    .accordion-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .panel img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .cont-video {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .video-item {
+        width: 100%;
+    }
+}
 
 
 
+@media (max-width: 768px) {
+    .accordion {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-  
+    .accordion-item {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
