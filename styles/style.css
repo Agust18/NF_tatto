@@ -135,28 +135,7 @@ body{
 }
    
     
- 
 
-/* img {
-    transition: transform 0.3s ease;
-  }
-  
-  img:hover {
-    transform: scale(1.03);
-  } */
-
-  
-
-
-@media (max-width: 768px) {
-    .accordion-gallery {
-        flex-direction: column;
-    }
-    .panel {
-        width: 50%;
-        margin-left: 0; /* Sin margen negativo en pantallas pequeñas */
-    }
-}
 
 .cont-video {
     justify-content: space-between; /* Distribuye los videos con espacio entre ellos */
@@ -175,17 +154,7 @@ body{
     
 }
 
-@media (max-width: 768px) {
-    .cont-video {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .cont-video video {
-      width: 90%;
-      height: auto;
-    }
-}
+
 
 .card{
     box-shadow: 0 0 15px #E46670; /* Resplandor amarillo */
@@ -284,49 +253,61 @@ footer {
 }
 
 
-/* style.css */
+
+
+
+
+
+/* celular videos */
+
+/* Centrado y ajuste de videos en dispositivos móviles */
+@media (max-width: 768px) {
+    .cont-video {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+  
+    .video-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  
+    .video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+}
+
+/* celular carrousel tattos */
+
+/* Ajuste del tamaño del carrusel en pantallas pequeñas */
 @media (max-width: 768px) {
     .accordion-gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+      display: flex;
+      overflow-x: scroll;
+      gap: 10px;
+      padding: 10px;
     }
-
+  
+    .panel {
+      min-width: 100%;
+      flex: 1;
+    }
+  
     .panel img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
+  }
 
-    .cont-video {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
+  
+/*  modal  */
 
-    .video-item {
-        width: 100%;
-    }
-}
-
-
-
-@media (max-width: 768px) {
-    .accordion {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .accordion-item {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
-
-/* modal */
-
-.custom-modal {
+  .custom-modal {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   }
@@ -363,4 +344,6 @@ footer {
     border-color: #28a745;
     color: #ffffff;
   }
+  
+
   
