@@ -5,27 +5,6 @@
     font-style: normal;
 }
 
-p {
-    font-family: inter;
-    line-height: 1.5;
-    font-size: 1.5rem ;
-    letter-spacing: 1px;
-}
-.mi-boton{
-    font-family: inter;
-   
-
-}
-
-h5{
-    font-family: gram;
-    line-height: 2;
-    font-size: 1.5rem ;
-    letter-spacing: 5px;
-
-
-}
-
 @font-face {
     font-family: 'Gram';
     src: url('../assets/fonts/Gram.ttf') format('truetype');
@@ -45,9 +24,46 @@ body{
     overflow-x: hidden;
 }
 
+h5{
+    font-family: gram;
+    line-height: 2;
+    font-size: 1.5rem ;
+    letter-spacing: 5px;
+}
+
+
+
+p {
+    font-family: inter;
+    line-height: 1.5;
+    font-size: 1.5rem ;
+    letter-spacing: 1px;
+}
+
+.mi-boton{
+    font-family: inter;
+}
+
+.mi-boton{
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.137); /* negro con transparencia */
+    border: none;
+}
+
+
+
 .navbar{
     font-family: Houstonville;
     font-size: 1.8rem;
+}
+
+.carousel-item img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+   
 }
 
 
@@ -58,30 +74,14 @@ body{
     padding:5px;
     border-radius: 50%;
     margin-left: 10px;
-    
-
-
 }
 
 .main{
     margin: 20px;
     
-    
 }
 
 
-
-.carousel-item img {
-    height: 400px;
-    width: 100%;
-    /* box-shadow: 0 0 10px #E46670; */
-    object-fit: cover;
-   
-   
-
-    
-        
-}
 
 .accordion-gallery {
     display: flex;
@@ -90,6 +90,7 @@ body{
     border-radius: 10px;
     margin-top: 15px;
     gap: 10px; /* Agrega separación entre los paneles */
+    
     
 }
 
@@ -127,13 +128,7 @@ body{
 
 
 
-.mi-boton{
-    margin-top: 5px;
-    margin-left: 5px;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.137); /* negro con transparencia */
-    border: none;
-}
+
 
 .mi-boton:hover{
     background-color: #E46670;
@@ -147,10 +142,7 @@ body{
     object-fit: cover;
     margin-top: 20px;
     flex-wrap: wrap; /* ✅ Permite que los elementos se bajen si no entran */
-    gap: 50px;
-    /* margin-left: 0px;
-    margin-right: 0px; */
-
+  
 }
    
     
@@ -173,8 +165,6 @@ body{
     
 }
 
-
-
 .card{
     box-shadow: 0 0 15px #E46670; /* Resplandor amarillo */
     border: #3d3d3d;
@@ -190,9 +180,12 @@ body{
     text-align: center;
     font-weight: bold;
     color: #E46670;
-    
     border: solid 2px;
 }
+
+
+
+
 
 /* Línea de separación estilizada */
 .line-footer {
@@ -216,7 +209,7 @@ body{
     font-size: 45px; /* Aumenta el tamaño de los iconos */
     color: #fff; /* Blanco para los íconos por defecto */
     transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    /* position: relative; */
 }
 
 /* Efecto hover */
@@ -237,6 +230,7 @@ body{
 
 /* Fondo oscuro y efectos para el footer */
 footer {
+    
     background-color: #3d3d3d;
     padding: 30px 0;
     text-align: center;
@@ -261,9 +255,9 @@ footer {
 
 /* Estilo para íconos en dispositivos móviles */
 @media (max-width: 768px) {
-    body{
-        overflow-x: visible;
-    }
+   footer{
+    margin-top: 12px;
+   }
     .icon a {
         font-size: 35px; /* Reduce el tamaño de los iconos en móviles */
         margin: 0 15px;
@@ -370,11 +364,30 @@ footer {
   
 
   
-
-
-
-
-
-
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .divider span {
+    margin: 0 10px;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #E46670;
+  }
+  
+  /* Estilo para la imagen */
+  .icon-img {
+    width: 24px;
+    height: 24px;
+  }
+  
 
   
