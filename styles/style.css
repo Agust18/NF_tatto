@@ -44,8 +44,12 @@ p {
     font-family: inter;
 }
 
+.mi-boton:hover{
+    background-color: #E46670;
+}
 
-.mi-boton{
+
+.mi-boton {
     color: #1e1e1e;
     margin-top: 5px;
     margin-left: 5px;
@@ -192,14 +196,6 @@ p {
 }
 
 
-
-
-
-.mi-boton:hover{
-    background-color: #E46670;
-}
-
-
 .container{
     justify-content: center;
     display: flex;
@@ -273,20 +269,46 @@ p {
     margin: 0 20px; /* Espaciado entre los iconos */
     font-size: 45px; /* Aumenta el tamaño de los iconos */
     color: #fff; /* Blanco para los íconos por defecto */
-    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    /* transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; */
     /* position: relative; */
+    
+}
+
+/* Animación de rebote para los íconos */
+.icon a {
+    animation: bounce 1.5s infinite alternate;
+    
+}
+/* La animación la aplico al wrapper */
+.bounce-wrapper {
+    display: inline-block;
+    animation: bounce 1.5s infinite alternate;
+}
+
+
+/* Animación tipo rebote para los iconos */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Efecto hover */
 .icon a:hover {
-    transform: scale(1.15); /* Aumenta el tamaño del icono */
+    /* transform: scale(1.15); Aumenta el tamaño del icono */
     color: #E46670; /* Cambia el color a un tono vibrante */
     box-shadow: 0 0 15px rgba(228, 102, 112, 0.7); /* Resplandor sutil alrededor del icono */
+    
 }
 
 /* Estilos para los iconos específicos */
 .icon a:nth-child(1):hover {
     color: #f44136; /* Rojo intenso para Instagram */
+    
+    
 }
 
 .icon a:nth-child(2):hover {
@@ -303,20 +325,9 @@ footer {
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3); /* Sombra superior para efecto flotante */
 }
 
-/* Animación de rebote para los íconos */
-.icon a {
-    animation: bounce 1.5s infinite alternate;
-}
 
-/* Animación tipo rebote para los iconos */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
+
+
 
 /* Estilo para íconos en dispositivos móviles */
 @media (max-width: 768px) {
