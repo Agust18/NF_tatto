@@ -116,12 +116,36 @@
     </span>
 </footer>
 
+ <script>
+  // window.addEventListener('load', function () {
+  //   var myModal = new bootstrap.Modal(document.getElementById('miModal'));
+  //   myModal.show();
+  // });
+</script> 
 <script>
   window.addEventListener('load', function () {
-    var myModal = new bootstrap.Modal(document.getElementById('miModal'));
+    const myModal = new bootstrap.Modal(document.getElementById('miModal'));
+    
+    // Mostrar el modal cuando la página se cargue
     myModal.show();
+
+    const modalElement = document.getElementById('miModal');
+
+    // Evento cuando el modal se muestra
+    modalElement.addEventListener('shown.bs.modal', () => {
+      // Eliminar 'aria-hidden' y 'inert' cuando el modal se muestra
+      modalElement.removeAttribute('aria-hidden');
+      modalElement.removeAttribute('inert'); // Aseguramos que no esté inactivo para tecnologías asistivas
+    });
+
+    // Evento cuando el modal se cierra
+    modalElement.addEventListener('hidden.bs.modal', () => {
+      // Añadir 'inert' al cerrar el modal para que no sea accesible ni interactivo
+      modalElement.setAttribute('inert', ''); 
+    });
   });
 </script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>

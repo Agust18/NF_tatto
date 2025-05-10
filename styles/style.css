@@ -55,8 +55,9 @@ p {
     margin-left: 5px;
     border-radius: 20px;
     border: none;
+    /* animation: bounce-spin 1.5s infinite alternate; */
     /* background-color: #E46670;  */
-     animation: bounce 1.2s infinite, glow 1.5s alternate infinite;
+     animation: bounce 1.2s infinite, glow 1.5s alternate infinite; 
      background: linear-gradient(30deg,#1e1e1e73, #E46670, #3d3d3d);
     /* animation: gradienteMove 4s linear infinite;  */
    
@@ -278,9 +279,10 @@ p {
 /* La animación la aplico al wrapper */
 .bounce-wrapper {
     display: inline-block;
-    
-    animation: bounce 1.5s infinite alternate;
+    /* animation: bounce-spin 1.5s infinite alternate; se tumba  */
+     animation: bounce 1.5s infinite alternate;
 }
+
 
 
 /* Animación tipo rebote para los iconos */
@@ -290,6 +292,15 @@ p {
     }
     50% {
         transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce-spin {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(10deg);
     }
 }
 
@@ -400,6 +411,9 @@ footer {
   .custom-modal {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+     margin-bottom: 100px;
+   
+    
   }
   
   .logo-modal {
@@ -407,11 +421,24 @@ footer {
     height: 100px;
     margin-bottom: 15px;
     border-radius: 50%;
+    box-shadow: 10px 20px 15px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+   
+    
   }
+
+  /* Efecto al pasar el mouse sobre el logo */
+.logo-modal:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
   
   .modal-header {
     background-color: #1e1e1e;
     border-bottom: none;
+     background-color: #333333; /* Color más oscuro para el encabezado */
+   
+  border-radius: 12px 12px 0 0; /* Bordes redondeados solo en la parte superior */
+  padding: 15px 20px; /* Aumenta el espacio para un mejor ajuste */
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5); /* Sombra suave */
   }
   
   .modal-footer {
@@ -434,6 +461,8 @@ footer {
     border-color: #28a745;
     color: #ffffff;
   }
+
+  
   
 
   
