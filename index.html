@@ -4,272 +4,249 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
   <title>NF • Tattoo studio</title>
-  <!-- fuentes / iconos / bootstrap / estilos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  
+  <!-- SOLO UNA VEZ: Bootstrap + Iconos críticos -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
+  <!-- Fuente moderna y rápida (Inter en lugar de Gram) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Solo UNA animación (Animate.css optimizado) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
   <style>
+    /* ESTILOS COMPACTOS Y EFICIENTES */
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
       background: #0b0b0b;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: #f0f0f0;
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
-    /* navbar minimal */
+    
+    /* Navbar minimal */
     .navbar {
       background: #0f0f0f !important;
-      backdrop-filter: blur(6px);
       border-bottom: 1px solid #2a2a2a;
       padding: 0.5rem 1rem;
     }
+    
     .navbar-brand img {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
-      filter: drop-shadow(0 0 6px #a855f7);
-      transition: transform 0.25s ease;
     }
-    .navbar-brand img:hover { transform: scale(1.05); }
-    .navbar-nav .nav-link {
+    
+    .nav-link {
       color: #ccc !important;
       font-weight: 500;
-      margin: 0 0.25rem;
-      padding: 0.5rem 0.75rem;
-      border-radius: 40px;
-      transition: 0.2s;
+      font-size: 0.95rem;
     }
-    .navbar-nav .nav-link.active,
-    .navbar-nav .nav-link:hover {
-      background: rgba(168, 85, 247, 0.15);
-      color: #f0f0f0 !important;
+    
+    .nav-link.active, .nav-link:hover {
+      color: #a855f7 !important;
     }
-    /* botón info flotante */
-    .info-float-btn {
+    
+    /* Botón flotante info */
+    .info-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 1050;
       background: #a855f7;
       border: none;
-      border-radius: 60px;
-      padding: 12px 20px;
+      border-radius: 50px;
+      padding: 10px 20px;
       color: white;
       font-weight: 600;
-      box-shadow: 0 10px 25px -8px #a855f7;
-      backdrop-filter: blur(8px);
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
       display: flex;
       align-items: center;
-      gap: 10px;
-      transition: 0.25s;
-      border: 1px solid rgba(255,255,255,0.2);
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .info-float-btn i { font-size: 1.3rem; }
-    .info-float-btn:hover {
-      background: #9333ea;
-      transform: scale(1.02);
-      box-shadow: 0 15px 30px -5px #a855f7;
-    }
-
-    /* offcanvas moderno */
+    
+    .info-btn i { font-size: 1.2rem; }
+    
+    /* Offcanvas */
     .offcanvas-dark {
       background: #121212;
       color: #ddd;
-      border-right: 1px solid #2a2a2a;
     }
-    .offcanvas-body img {
+    
+    .offcanvas-dark img {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      border: 3px solid #a855f7;
-      padding: 5px;
-      background: #1e1e1e;
-      margin-bottom: 1.5rem;
+      border: 2px solid #a855f7;
+      margin: 0 auto 1rem;
     }
-    .offcanvas-body p {
-      font-size: 0.98rem;
-      line-height: 1.6;
-      color: #bbb;
-    }
-
-    /* carousel hero */
+    
+    /* HERO CAROUSEL - compacto */
     .carousel-hero {
-      margin-top: 0;
-      border-radius: 0 0 30px 30px;
+      max-height: 60vh;
       overflow: hidden;
-      max-height: 68vh;
     }
-    .carousel-hero .carousel-item img {
+    
+    .carousel-hero img {
+      height: 60vh;
       object-fit: cover;
-      height: 68vh;
-      filter: brightness(0.75);
-      transition: transform 5s ease;
     }
-    .carousel-hero .carousel-item.active img {
-      transform: scale(1.05);
-    }
-
-    /* divisores con logo */
+    
+    /* Divisor */
     .divider {
       display: flex;
       justify-content: center;
-      align-items: center;
-      margin: 1.2rem 0 0.8rem 0;
+      margin: 0.8rem 0;
     }
+    
     .divider span {
-      background: #1f1f1f;
-      padding: 12px 24px;
-      border-radius: 80px;
+      background: #1a1a1a;
+      padding: 8px 24px;
+      border-radius: 40px;
       border: 1px solid #a855f7;
-      box-shadow: 0 0 12px #a855f74d;
     }
+    
     .icon-img {
-      height: 36px;
+      height: 30px;
       width: auto;
-      filter: drop-shadow(0 0 5px #a855f7);
     }
-
-    /* panel accordion effect (imágenes) */
-    .accordion-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 0 10px;
-      justify-content: center;
-      margin: 20px 0;
+    
+    /* GALERÍA DE IMÁGENES - grid rápido */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      padding: 0 8px;
+      margin: 15px 0;
     }
-    .panel {
-      flex: 1 1 calc(33.333% - 8px);
-      max-width: calc(33.333% - 8px);
+    
+    .gallery-item {
       aspect-ratio: 3/4;
+      border-radius: 16px;
       overflow: hidden;
-      border-radius: 22px;
-      background: #1c1c1c;
-      border: 1px solid #333;
-      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+      background: #1a1a1a;
     }
-    .panel:hover {
-      transform: translateY(-6px) scale(1.01);
-      border-color: #a855f7;
-      box-shadow: 0 18px 25px -10px #b85bff;
-    }
-    .panel img {
+    
+    .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 0.45s;
+      transition: transform 0.2s;
     }
-    .panel:hover img { transform: scale(1.06); }
-
-    /* videos grid */
-    .cont-video {
+    
+    .gallery-item:active img {
+      transform: scale(1.02);
+    }
+    
+    /* VIDEOS GRID - carga diferida */
+    .video-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding: 0 10px;
-      margin: 20px 0;
+      gap: 8px;
+      padding: 0 8px;
+      margin: 15px 0;
     }
+    
     .video-item {
-      border-radius: 24px;
-      overflow: hidden;
-      background: #111;
       aspect-ratio: 9/16;
-      border: 1px solid #2f2f2f;
-      transition: 0.3s;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #000;
     }
+    
     .video-item video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
-    .video-item:hover {
-      border-color: #a855f7;
-      box-shadow: 0 0 18px #b65cf7;
-    }
-
-    /* modal personalizado bienvenida */
-    .modal-custom {
-      background: #181818;
-      border: 1px solid #a855f7;
-      border-radius: 32px;
-    }
-    .modal-custom .modal-header {
-      border-bottom: 1px solid #333;
-    }
-    .btn-outline-light:hover {
-      background: #a855f7;
-      border-color: #a855f7;
-    }
-
-    /* footer social compacto */
-    footer {
+    
+    /* Footer social */
+    .footer-social {
       background: #0c0c0c;
-      padding: 20px 16px 25px 16px;
+      padding: 20px 16px;
       margin-top: 20px;
       border-top: 1px solid #2a2a2a;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .social-ring {
+    
+    .social-icons {
       display: flex;
       gap: 30px;
-      background: #1b1b1b;
-      padding: 14px 40px;
-      border-radius: 60px;
-      border: 1px solid #a855f7;
+      background: #1a1a1a;
+      padding: 12px 40px;
+      border-radius: 50px;
     }
-    .social-ring a {
-      color: #f0f0f0;
-      font-size: 2rem;
-      transition: 0.2s;
+    
+    .social-icons a {
+      color: #fff;
+      font-size: 1.8rem;
+      transition: color 0.2s;
     }
-    .social-ring a:hover {
+    
+    .social-icons a:hover {
       color: #a855f7;
-      transform: scale(1.15);
-      text-shadow: 0 0 10px #a855f7;
     }
-
-    /* responsivo fino: mobile first, desktop elegante */
+    
+    /* Botón WhatsApp */
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border-radius: 50px;
+      padding: 12px 30px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    
+    /* Responsive */
     @media (min-width: 768px) {
-      .panel { flex: 1 1 calc(25% - 8px); max-width: calc(25% - 8px); }
-      .cont-video { grid-template-columns: repeat(3, 1fr); padding: 0 20px; }
-      .carousel-hero .carousel-item img { height: 75vh; }
-      .info-float-btn { bottom: 25px; right: 30px; }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .video-grid { grid-template-columns: repeat(3, 1fr); }
     }
-    @media (min-width: 1200px) {
-      .panel { flex: 1 1 calc(20% - 8px); max-width: calc(20% - 8px); }
-      .cont-video { grid-template-columns: repeat(4, 1fr); }
+    
+    /* Animaciones simplificadas */
+    .fade-up {
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
     }
-
-    /* animaciones personalizadas suaves */
-    .animate__fadeInUp { animation-duration: 0.9s; }
-    .animate__delay-1s { animation-delay: 0.15s; }
-    .animate__delay-2s { animation-delay: 0.3s; }
-    .animate__delay-3s { animation-delay: 0.45s; }
-
-    /* quitar bordes azules bootstrap */
-    .btn:focus, .navbar-toggler:focus { box-shadow: none; }
+    
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Lazy loading */
+    .lazy {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .lazy.loaded {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
-<!-- ========== NAVBAR ========== -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top animate__animated animate__fadeInDown">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="assets/imagenes/logo.png" alt="NF logo" loading="lazy">
+      <img src="assets/imagenes/logo.png" alt="NF" loading="eager">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Sobre mí</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInfo">Sobre mí</a></li>
         <li class="nav-item"><a class="nav-link" href="#tattoos">Tattos</a></li>
         <li class="nav-item"><a class="nav-link" href="#turnos">Turnos</a></li>
       </ul>
@@ -277,161 +254,176 @@
   </div>
 </nav>
 
-<!-- ========== BOTÓN FLOTANTE INFO (reemplaza al offcanvas fijo antiguo) ========== -->
-<button class="info-float-btn animate__animated animate__pulse animate__infinite" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInfo" aria-controls="offcanvasInfo">
-  <i class="bi bi-person-circle"></i> <span>Nacho</span>
+<!-- BOTÓN INFO FLOTANTE -->
+<button class="info-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInfo">
+  <i class="bi bi-person-circle"></i> Nacho
 </button>
 
-<!-- OFFCANVAS DATOS DEL ARTISTA (moderno) -->
-<div class="offcanvas offcanvas-start offcanvas-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasInfo" aria-labelledby="offcanvasInfoLabel">
+<!-- OFFCANVAS INFO -->
+<div class="offcanvas offcanvas-start offcanvas-dark" tabindex="-1" id="offcanvasInfo">
   <div class="offcanvas-header border-secondary border-bottom">
-    <h5 class="offcanvas-title text-white" id="offcanvasInfoLabel"><i class="bi bi-palette-fill me-2" style="color:#a855f7;"></i>Nacho Fernández</h5>
+    <h5 class="offcanvas-title text-white">Nacho Fernández</h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
   </div>
-  <div class="offcanvas-body d-flex flex-column align-items-center text-center">
-    <img src="assets/imagenes/logo.png" class="rounded-circle w-50" style="max-width:130px;" alt="artista">
-    <p class="mt-4 px-2">¡Hola! Soy Nacho, tatuador de Chacabuco, Buenos Aires. Desde 2021 convirtiendo ideas en piel. Me apasiona el detalle, el arte personal y que cada tatuaje cuente una historia única. En mis ratos libres: deporte y buscar nuevas texturas. ¡Bienvenido a mi portfolio vivo!</p>
-    <div class="mt-3">
-      <i class="bi bi-geo-alt-fill me-1" style="color:#a855f7;"></i> Chacabuco, BA
+  <div class="offcanvas-body text-center">
+    <img src="assets/imagenes/logo.png" alt="logo" loading="lazy">
+    <p class="mt-3 small">Tatuador de Chacabuco, BA. Desde 2021 transformando ideas en arte sobre la piel. Cada diseño es único, como quien lo lleva.</p>
+    <p class="mt-2"><i class="bi bi-geo-alt-fill" style="color:#a855f7;"></i> Chacabuco, Buenos Aires</p>
+  </div>
+</div>
+
+<!-- HERO CAROUSEL (más rápido) -->
+<div id="carouselHero" class="carousel slide carousel-hero" data-bs-ride="carousel" data-bs-interval="2500">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/imagenes/C1.png" class="d-block w-100" alt="diseño 1" loading="eager">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/imagenes/C2.png" class="d-block w-100" alt="diseño 2" loading="lazy">
+    </div>
+    <div class="carousel-item">
+      <img src="assets/imagenes/C3.png" class="d-block w-100" alt="diseño 3" loading="lazy">
     </div>
   </div>
 </div>
 
-<!-- ========== HERO CAROUSEL ========== -->
-<div id="carouselHero" class="carousel slide carousel-hero" data-bs-ride="carousel" data-bs-interval="2600" data-bs-pause="false">
-  <div class="carousel-inner">
-    <div class="carousel-item active"><img src="assets/imagenes/C1.png" class="d-block w-100" alt="diseño 1"></div>
-    <div class="carousel-item"><img src="assets/imagenes/C2.png" class="d-block w-100" alt="diseño 2"></div>
-    <div class="carousel-item"><img src="assets/imagenes/C3.png" class="d-block w-100" alt="diseño 3"></div>
-  </div>
-</div>
-
-<!-- ========== SECCIÓN TATTOS (imágenes + videos) ========== -->
+<!-- CONTENIDO PRINCIPAL -->
 <main id="tattoos">
 
-  <!-- divisor animado -->
-  <div class="divider animate__animated animate__fadeInUp">
-    <span><img src="assets/imagenes/logo.png" class="icon-img" alt="separador"></span>
+  <!-- Divisor -->
+  <div class="divider">
+    <span><img src="assets/imagenes/logo.png" class="icon-img" alt="·" loading="lazy"></span>
   </div>
 
-  <!-- PRIMER BLOQUE DE FOTOS (6) -->
-  <div class="accordion-gallery">
-    <div class="panel animate__animated animate__fadeInUp"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo 1"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-1s"><img src="assets/imagenes/img2.jpeg" loading="lazy" alt="tattoo 2"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-2s"><img src="assets/imagenes/img3.jpeg" loading="lazy" alt="tattoo 3"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-3s"><img src="assets/imagenes/img4.jpeg" loading="lazy" alt="tattoo 4"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-3s"><img src="assets/imagenes/img5.jpeg" loading="lazy" alt="tattoo 5"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-3s"><img src="assets/imagenes/img6.jpeg" loading="lazy" alt="tattoo 6"></div>
-    <!-- añado img7 si existe (estaba en el segundo html) -->
-    <div class="panel animate__animated animate__fadeInUp animate__delay-3s"><img src="assets/imagenes/img7.jpeg" loading="lazy" alt="tattoo 7"></div>
+  <!-- PRIMER GRUPO DE TATTOOS (imágenes pequeñas y rápidas) -->
+  <div class="gallery-grid">
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img2.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img3.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img4.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img5.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img6.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img7.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item fade-up"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo"></div>
   </div>
 
-  <!-- divisor -->
-  <div class="divider animate__animated animate__fadeIn">
-    <span><img src="assets/imagenes/logo.png" class="icon-img" alt="separador"></span>
+  <!-- Divisor -->
+  <div class="divider">
+    <span><img src="assets/imagenes/logo.png" class="icon-img" alt="·" loading="lazy"></span>
   </div>
 
-  <!-- VIDEOS (autoplay silenciados) -->
-  <div class="cont-video">
-    <div class="video-item animate__animated animate__fadeInUp"><video src="assets/videos/7.mp4" autoplay loop muted playsinline></video></div>
-    <div class="video-item animate__animated animate__fadeInUp animate__delay-1s"><video src="assets/videos/9.mp4" autoplay loop muted playsinline></video></div>
-    <div class="video-item animate__animated animate__fadeInUp animate__delay-2s"><video src="assets/videos/nuevo1.mp4" autoplay loop muted playsinline></video></div>
-    <div class="video-item animate__animated animate__fadeInUp animate__delay-3s"><video src="assets/videos/5.mp4" autoplay loop muted playsinline></video></div>
-    <div class="video-item animate__animated animate__fadeInUp animate__delay-4s"><video src="assets/videos/2.mp4" autoplay loop muted playsinline></video></div>
-    <div class="video-item animate__animated animate__fadeInUp animate__delay-5s"><video src="assets/videos/3.mp4" autoplay loop muted playsinline></video></div>
+  <!-- VIDEOS - IMPORTANTE: SOLO PRECARGA EL PRIMERO -->
+  <div class="video-grid">
+    <div class="video-item"><video src="assets/videos/7.mp4" autoplay loop muted playsinline preload="auto"></video></div>
+    <div class="video-item"><video src="assets/videos/9.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img2.jpeg"></video></div>
+    <div class="video-item"><video src="assets/videos/nuevo1.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img3.jpeg"></video></div>
+    <div class="video-item"><video src="assets/videos/5.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img4.jpeg"></video></div>
+    <div class="video-item"><video src="assets/videos/2.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img5.jpeg"></video></div>
+    <div class="video-item"><video src="assets/videos/3.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img6.jpeg"></video></div>
   </div>
 
-  <!-- divisor -->
-  <div class="divider animate__animated animate__fadeIn">
-    <span><img src="assets/imagenes/logo.png" class="icon-img" alt="separador"></span>
+  <!-- Divisor -->
+  <div class="divider">
+    <span><img src="assets/imagenes/logo.png" class="icon-img" alt="·" loading="lazy"></span>
   </div>
 
-  <!-- SEGUNDA HORNADA DE FOTOS (nueva1, nueva2, nueva3, nueva4, photo3, photo2) -->
-  <div class="accordion-gallery">
-    <div class="panel animate__animated animate__fadeInUp"><img src="assets/imagenes/nueva1.jpeg" loading="lazy" alt="tattoo fresh"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-1s"><img src="assets/imagenes/nueva2.jpeg" loading="lazy" alt="tattoo fresh"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-2s"><img src="assets/imagenes/nueva3.jpeg" loading="lazy" alt="tattoo fresh"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-2s"><img src="assets/imagenes/nueva4.jpeg" loading="lazy" alt="tattoo fresh"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-2s"><img src="assets/imagenes/photo3.jpeg" loading="lazy" alt="tattoo fresh"></div>
-    <div class="panel animate__animated animate__fadeInUp animate__delay-2s"><img src="assets/imagenes/photo2.jpeg" loading="lazy" alt="tattoo fresh"></div>
+  <!-- SEGUNDO GRUPO DE TATTOOS -->
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="assets/imagenes/nueva1.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item"><img src="assets/imagenes/nueva2.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item"><img src="assets/imagenes/nueva3.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item"><img src="assets/imagenes/nueva4.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item"><img src="assets/imagenes/photo3.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item"><img src="assets/imagenes/photo2.jpeg" loading="lazy" alt="tattoo"></div>
   </div>
 
-  <!-- pequeño espacio turnos: sección interactiva suave -->
-  <div id="turnos" class="text-center my-5 px-3">
-    <h5 class="fw-light text-white-50">¿Te animás a llevar mi arte?</h5>
-    <a href="https://wa.me/2352488812?text=¡Hola!%20Quiero%20consultar%20por%20un%20turno" target="_blank" class="btn btn-outline-light rounded-pill px-5 py-2 mt-2" style="border-color: #a855f7; color:#fff;"><i class="bi bi-whatsapp me-2"></i>Turnos por WhatsApp</a>
+  <!-- SECCIÓN TURNOS -->
+  <div id="turnos" class="text-center my-4">
+    <a href="https://wa.me/2352488812?text=¡Hola!%20Quiero%20consultar%20por%20un%20turno" target="_blank" class="whatsapp-btn">
+      <i class="bi bi-whatsapp me-2"></i>Reservá tu turno
+    </a>
   </div>
 </main>
 
-<!-- ========== FOOTER SOCIAL ========== -->
-<footer>
-  <div class="social-ring">
-    <a href="https://www.instagram.com/nachofernandez_tattoo/?hl=es-la" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-    <a href="https://wa.me/2352488812?text=¡Hola!%20Estoy%20interesado%20en%20tu%20servicio." target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+<!-- FOOTER -->
+<footer class="footer-social">
+  <div class="social-icons">
+    <a href="https://www.instagram.com/nachofernandez_tattoo/" target="_blank"><i class="bi bi-instagram"></i></a>
+    <a href="https://wa.me/2352488812" target="_blank"><i class="bi bi-whatsapp"></i></a>
   </div>
-  <div class="mt-3 small text-white-50">© NachoFernandez • seguí tu instinto</div>
+  <div class="mt-3 small text-white-50">NachoFernandez Tattoo</div>
 </footer>
 
-<!-- ========== MODAL BIENVENIDA (solo una vez, más liviano) ========== -->
-<div class="modal fade" id="modalBienvenida" tabindex="-1" aria-hidden="true">
+<!-- MODAL BIENVENIDA (OPCIONAL - COMENTADO PARA ACELERAR) -->
+<!-- 
+<div class="modal fade" id="modalBienvenida" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content modal-custom text-white">
-      <div class="modal-header border-0 pb-0">
-        <h5 class="modal-title" id="modalBienvenidaLabel"><strong>⚡ NF Tattoo ⚡</strong></h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">⚡ Bienvenido ⚡</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body text-center">
-        <img src="assets/imagenes/fondo.png" style="width:110px; border-radius: 30px; margin-bottom: 10px;" alt="fondo">
-        <p>Bienvenido a mi portfolio.<br>Disfrutá cada diseño, todo está hecho con intención. ¡Escribime cuando quieras!</p>
-      </div>
-      <div class="modal-footer border-0 justify-content-center">
-        <button type="button" class="btn btn-outline-light px-5" data-bs-dismiss="modal">Entrar</button>
+        <p>Disfrutá de los diseños y animate a tatuarte</p>
       </div>
     </div>
   </div>
 </div>
+-->
 
-<!-- scripts -->
+<!-- SCRIPTS: Bootstrap solo una vez -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script minimal para lazy loading y smooth scroll -->
 <script>
   (function() {
-    // modal automático solo una vez (y sin errores de inert)
-    window.addEventListener('load', function() {
-      const modalElem = document.getElementById('modalBienvenida');
-      if (modalElem) {
-        const welcomeModal = new bootstrap.Modal(modalElem, {});
-        welcomeModal.show();
-        // manejamos atributos inert / aria-hidden para que no bloquee
-        modalElem.addEventListener('shown.bs.modal', function() {
-          this.removeAttribute('inert');
-          this.setAttribute('aria-hidden', 'false');
+    // Lazy loading manual para imágenes
+    if ('IntersectionObserver' in window) {
+      const imgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.classList.add('loaded');
+            imgObserver.unobserve(img);
+          }
         });
-        modalElem.addEventListener('hidden.bs.modal', function() {
-          this.setAttribute('inert', '');
-          this.setAttribute('aria-hidden', 'true');
-        });
-      }
-    });
-
-    // suave scroll para los enlaces internos "Sobre mí / Tattos / Turnos"
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      });
+      
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.classList.add('lazy');
+        imgObserver.observe(img);
+      });
+    }
+    
+    // Smooth scroll para enlaces
+    document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        if (href === '#tattoos' || href === '#turnos') {
+        if (href && href.startsWith('#')) {
           e.preventDefault();
           const target = document.querySelector(href);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        // si es "Sobre mí", no hace falta porque mostramos offcanvas
-        if (this.textContent.includes('Sobre mí')) {
-          e.preventDefault();
-          const offBtn = document.querySelector('[data-bs-target="#offcanvasInfo"]');
-          if (offBtn) offBtn.click();
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
+    
+    // Precarga solo el primer video, los demás solo cuando se vean
+    const videos = document.querySelectorAll('video[preload="none"]');
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const video = entry.target;
+            video.preload = 'auto';
+            video.load();
+            videoObserver.unobserve(video);
+          }
+        });
+      });
+      
+      videos.forEach(video => videoObserver.observe(video));
+    }
   })();
 </script>
-<!-- opcional: pequeña mejora para que el botón info flotante también cierre el navbar en móvil -->
 </body>
 </html>
