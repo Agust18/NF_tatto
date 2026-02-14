@@ -3,53 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
-  <title>NF • Tattoo studio</title>
+  <title>NF • Nacho Fernandez Tattoo</title>
   
-  <!-- SOLO UNA VEZ: Bootstrap + Iconos críticos -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- SOLO CRÍTICO: Bootstrap + iconos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   
-  <!-- Fuente moderna y rápida (Inter en lugar de Gram) -->
+  <!-- Fuente rápida del sistema -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Solo UNA animación (Animate.css optimizado) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Animate.css solo lo esencial -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
   
   <style>
-    /* ESTILOS COMPACTOS Y EFICIENTES */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* === RESET Y VARIABLES === */
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     
     body {
-      background: #0b0b0b;
+      background: #0a0a0a;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #f0f0f0;
+      color: #fff;
       scroll-behavior: smooth;
     }
     
-    /* Navbar minimal */
+    /* === NAVBAR === */
     .navbar {
       background: #0f0f0f !important;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid #222;
       padding: 0.5rem 1rem;
+      backdrop-filter: blur(10px);
     }
     
     .navbar-brand img {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       object-fit: contain;
+      filter: drop-shadow(0 0 5px #a855f7);
     }
     
     .nav-link {
       color: #ccc !important;
       font-weight: 500;
-      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      transition: all 0.2s;
     }
     
-    .nav-link.active, .nav-link:hover {
+    .nav-link:active {
+      background: rgba(168, 85, 247, 0.2);
+      transform: scale(0.95);
+    }
+    
+    .nav-link.active {
       color: #a855f7 !important;
+      background: rgba(168, 85, 247, 0.1);
     }
     
-    /* Botón flotante info */
+    /* === BOTÓN INFO FLOTANTE (INTERACCIÓN TÁCTIL) === */
     .info-btn {
       position: fixed;
       bottom: 20px;
@@ -58,34 +68,43 @@
       background: #a855f7;
       border: none;
       border-radius: 50px;
-      padding: 10px 20px;
+      padding: 12px 22px;
       color: white;
       font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+      font-size: 1rem;
+      box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.15s, box-shadow 0.15s;
+      -webkit-touch-callout: none;
     }
     
-    .info-btn i { font-size: 1.2rem; }
+    .info-btn:active {
+      transform: scale(0.92);
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.6);
+    }
     
-    /* Offcanvas */
+    .info-btn i { font-size: 1.3rem; }
+    
+    /* === OFFCANVAS === */
     .offcanvas-dark {
       background: #121212;
-      color: #ddd;
+      color: #e0e0e0;
     }
     
     .offcanvas-dark img {
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
-      border: 2px solid #a855f7;
+      border: 3px solid #a855f7;
+      object-fit: cover;
       margin: 0 auto 1rem;
     }
     
-    /* HERO CAROUSEL - compacto */
+    /* === HERO CAROUSEL (LIVIANO) === */
     .carousel-hero {
       max-height: 60vh;
       overflow: hidden;
@@ -96,32 +115,34 @@
       object-fit: cover;
     }
     
-    /* Divisor */
+    /* === DIVISOR CON LOGO === */
     .divider {
       display: flex;
       justify-content: center;
-      margin: 0.8rem 0;
+      margin: 1rem 0;
     }
     
     .divider span {
       background: #1a1a1a;
-      padding: 8px 24px;
-      border-radius: 40px;
+      padding: 8px 28px;
+      border-radius: 50px;
       border: 1px solid #a855f7;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
     }
     
     .icon-img {
-      height: 30px;
+      height: 32px;
       width: auto;
+      filter: drop-shadow(0 0 5px #a855f7);
     }
     
-    /* GALERÍA DE IMÁGENES - grid rápido */
+    /* === GALERÍA DE IMÁGENES (CON EFECTO TÁCTIL) === */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 6px;
       padding: 0 8px;
-      margin: 15px 0;
+      margin: 16px 0;
     }
     
     .gallery-item {
@@ -129,33 +150,43 @@
       border-radius: 16px;
       overflow: hidden;
       background: #1a1a1a;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+    }
+    
+    .gallery-item:active {
+      transform: scale(0.96);
+      box-shadow: 0 2px 8px #a855f7;
     }
     
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.2s;
+      pointer-events: none; /* Evita que el imagen bloquee el efecto táctil */
     }
     
-    .gallery-item:active img {
-      transform: scale(1.02);
-    }
-    
-    /* VIDEOS GRID - carga diferida */
+    /* === GRID DE VIDEOS (CARGA BAJO DEMANDA) === */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
       padding: 0 8px;
-      margin: 15px 0;
+      margin: 16px 0;
     }
     
     .video-item {
       aspect-ratio: 9/16;
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
       background: #000;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+      transition: transform 0.15s;
+    }
+    
+    .video-item:active {
+      transform: scale(0.97);
     }
     
     .video-item video {
@@ -164,10 +195,32 @@
       object-fit: cover;
     }
     
-    /* Footer social */
+    /* === BOTÓN WHATSAPP (TÁCTIL) === */
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border-radius: 50px;
+      padding: 14px 35px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin: 15px 0;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+      border: none;
+      -webkit-touch-callout: none;
+    }
+    
+    .whatsapp-btn:active {
+      transform: scale(0.94);
+      box-shadow: 0 4px 12px #25D366;
+    }
+    
+    /* === FOOTER SOCIAL (TÁCTIL) === */
     .footer-social {
       background: #0c0c0c;
-      padding: 20px 16px;
+      padding: 25px 16px 20px;
       margin-top: 20px;
       border-top: 1px solid #2a2a2a;
       display: flex;
@@ -177,58 +230,77 @@
     
     .social-icons {
       display: flex;
-      gap: 30px;
+      gap: 40px;
       background: #1a1a1a;
-      padding: 12px 40px;
-      border-radius: 50px;
+      padding: 14px 45px;
+      border-radius: 60px;
+      border: 1px solid #333;
     }
     
     .social-icons a {
       color: #fff;
-      font-size: 1.8rem;
-      transition: color 0.2s;
+      font-size: 2rem;
+      transition: color 0.2s, transform 0.1s;
+      -webkit-touch-callout: none;
     }
     
-    .social-icons a:hover {
+    .social-icons a:active {
       color: #a855f7;
+      transform: scale(0.9);
     }
     
-    /* Botón WhatsApp */
-    .whatsapp-btn {
-      background: #25D366;
-      color: white;
-      border-radius: 50px;
-      padding: 12px 30px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin: 10px 0;
+    /* === MODAL DE BIENVENIDA (CON TEXTO ORIGINAL) === */
+    .custom-modal {
+      background: #121212;
+      border: 1px solid #a855f7;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
     }
     
-    /* Responsive */
+    .modal-content-custom {
+      background: #121212;
+      color: #f0f0f0;
+    }
+    
+    .logo-modal {
+      width: 110px;
+      height: 110px;
+      border-radius: 55px;
+      object-fit: cover;
+      border: 3px solid #a855f7;
+      margin: 0 auto;
+    }
+    
+    .modal-text {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ddd;
+      padding: 0 10px;
+    }
+    
+    /* === RESPONSIVE === */
     @media (min-width: 768px) {
       .gallery-grid { grid-template-columns: repeat(4, 1fr); }
       .video-grid { grid-template-columns: repeat(3, 1fr); }
     }
     
-    /* Animaciones simplificadas */
-    .fade-up {
-      animation: fadeUp 0.6s ease forwards;
+    /* === ANIMACIONES LIGERAS === */
+    .fade-touch {
+      animation: fadeTouch 0.5s ease;
+    }
+    
+    @keyframes fadeTouch {
+      0% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* === LAZY LOADING SMOOTH === */
+    .lazy-img {
       opacity: 0;
+      transition: opacity 0.3s ease;
     }
     
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Lazy loading */
-    .lazy {
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    
-    .lazy.loaded {
+    .lazy-img.loaded {
       opacity: 1;
     }
   </style>
@@ -246,8 +318,8 @@
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInfo">Sobre mí</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tattoos">Tattos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInfo">Sobre Mi</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#tattoos">Tattos</a></li>
         <li class="nav-item"><a class="nav-link" href="#turnos">Turnos</a></li>
       </ul>
     </div>
@@ -256,64 +328,62 @@
 
 <!-- BOTÓN INFO FLOTANTE -->
 <button class="info-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInfo">
-  <i class="bi bi-person-circle"></i> Nacho
+  <i class="bi bi-person-circle"></i> <span>Información personal</span>
 </button>
 
-<!-- OFFCANVAS INFO -->
+<!-- OFFCANVAS INFO (CON TEXTO ORIGINAL) -->
 <div class="offcanvas offcanvas-start offcanvas-dark" tabindex="-1" id="offcanvasInfo">
-  <div class="offcanvas-header border-secondary border-bottom">
+  <div class="offcanvas-header border-bottom border-secondary">
     <h5 class="offcanvas-title text-white">Nacho Fernández</h5>
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="offcanvas-body text-center">
-    <img src="assets/imagenes/logo.png" alt="logo" loading="lazy">
-    <p class="mt-3 small">¡Hola! Soy Nacho, tatuador de Chacabuco, Buenos Aires. Desde 2021 convirtiendo ideas en piel. Me apasiona el detalle, el arte personal y que cada tatuaje cuente una historia única. En mis ratos libres: deporte y buscar nuevas texturas. ¡Bienvenido a mi portfolio vivo!</p>
-    <div class="mt-3">
-    <p class="mt-2"><i class="bi bi-geo-alt-fill" style="color:#a855f7;"></i> Chacabuco, Buenos Aires</p>
+    <img src="assets/imagenes/logo.png" alt="Nacho" loading="lazy">
+    <p class="mt-3" style="font-size: 0.95rem; line-height: 1.6;">
+      ¡Hola! Soy Nacho Fernández, tatuador y amante del arte corporal. Desde chico, siempre me llamó la atención el dibujo, y esa pasión por plasmar mis ideas en el papel fue el inicio de lo que hoy es mi profesión. Empecé a tatuar en 2021, y desde entonces mi dedicación y pasión por este arte han sido mi motor.
+      <br><br>
+      Lo que más me inspira es la oportunidad de dejar una marca única y personal en cada persona. Cada tatuaje es una historia, una conexión, un pedazo de vida.
+      <br><br>
+      Vivo en Chacabuco, Buenos Aires, y me siento afortunado de dedicarme a lo que más me gusta.
+    </p>
+    <p class="mt-2"><i class="bi bi-geo-alt-fill" style="color:#a855f7;"></i> Chacabuco, BA</p>
   </div>
 </div>
 
-<!-- HERO CAROUSEL (más rápido) -->
-<div id="carouselHero" class="carousel slide carousel-hero" data-bs-ride="carousel" data-bs-interval="2500">
+<!-- HERO CAROUSEL -->
+<div id="carouselHero" class="carousel slide carousel-hero" data-bs-ride="carousel" data-bs-interval="2300" data-bs-pause="false">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="assets/imagenes/C1.png" class="d-block w-100" alt="diseño 1" loading="eager">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/imagenes/C2.png" class="d-block w-100" alt="diseño 2" loading="lazy">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/imagenes/C3.png" class="d-block w-100" alt="diseño 3" loading="lazy">
-    </div>
+    <div class="carousel-item active"><img src="assets/imagenes/C1.png" class="d-block w-100" alt="C1" loading="eager"></div>
+    <div class="carousel-item"><img src="assets/imagenes/C2.png" class="d-block w-100" alt="C2" loading="lazy"></div>
+    <div class="carousel-item"><img src="assets/imagenes/C3.png" class="d-block w-100" alt="C3" loading="lazy"></div>
   </div>
 </div>
 
 <!-- CONTENIDO PRINCIPAL -->
 <main id="tattoos">
 
-  <!-- Divisor -->
+  <!-- DIVISOR -->
   <div class="divider">
     <span><img src="assets/imagenes/logo.png" class="icon-img" alt="·" loading="lazy"></span>
   </div>
 
-  <!-- PRIMER GRUPO DE TATTOOS (imágenes pequeñas y rápidas) -->
+  <!-- GALERÍA 1 -->
   <div class="gallery-grid">
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img2.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img3.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img4.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img5.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img6.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img7.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item fade-up"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/img2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/img3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/img4.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/img5.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/img6.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/img7.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
   </div>
 
-  <!-- Divisor -->
+  <!-- DIVISOR -->
   <div class="divider">
     <span><img src="assets/imagenes/logo.png" class="icon-img" alt="·" loading="lazy"></span>
   </div>
 
-  <!-- VIDEOS - IMPORTANTE: SOLO PRECARGA EL PRIMERO -->
+  <!-- VIDEOS (SOLO 1 CARGA INICIAL) -->
   <div class="video-grid">
     <div class="video-item"><video src="assets/videos/7.mp4" autoplay loop muted playsinline preload="auto"></video></div>
     <div class="video-item"><video src="assets/videos/9.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img2.jpeg"></video></div>
@@ -323,25 +393,25 @@
     <div class="video-item"><video src="assets/videos/3.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img6.jpeg"></video></div>
   </div>
 
-  <!-- Divisor -->
+  <!-- DIVISOR -->
   <div class="divider">
     <span><img src="assets/imagenes/logo.png" class="icon-img" alt="·" loading="lazy"></span>
   </div>
 
-  <!-- SEGUNDO GRUPO DE TATTOOS -->
+  <!-- GALERÍA 2 -->
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="assets/imagenes/nueva1.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item"><img src="assets/imagenes/nueva2.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item"><img src="assets/imagenes/nueva3.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item"><img src="assets/imagenes/nueva4.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item"><img src="assets/imagenes/photo3.jpeg" loading="lazy" alt="tattoo"></div>
-    <div class="gallery-item"><img src="assets/imagenes/photo2.jpeg" loading="lazy" alt="tattoo"></div>
+    <div class="gallery-item"><img src="assets/imagenes/nueva1.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/nueva2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/nueva3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/nueva4.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/photo3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item"><img src="assets/imagenes/photo2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
   </div>
 
-  <!-- SECCIÓN TURNOS -->
+  <!-- TURNOS -->
   <div id="turnos" class="text-center my-4">
     <a href="https://wa.me/2352488812?text=¡Hola!%20Quiero%20consultar%20por%20un%20turno" target="_blank" class="whatsapp-btn">
-      <i class="bi bi-whatsapp me-2"></i>Reservá tu turno
+      <i class="bi bi-whatsapp me-2"></i>Turnos
     </a>
   </div>
 </main>
@@ -349,68 +419,82 @@
 <!-- FOOTER -->
 <footer class="footer-social">
   <div class="social-icons">
-    <a href="https://www.instagram.com/nachofernandez_tattoo/" target="_blank"><i class="bi bi-instagram"></i></a>
-    <a href="https://wa.me/2352488812" target="_blank"><i class="bi bi-whatsapp"></i></a>
+    <a href="https://www.instagram.com/nachofernandez_tattoo/?hl=es-la" target="_blank"><i class="bi bi-instagram"></i></a>
+    <a href="https://wa.me/2352488812?text=¡Hola!%20Estoy%20interesado%20en%20tu%20servicio." target="_blank"><i class="bi bi-whatsapp"></i></a>
   </div>
-  <div class="mt-3 small text-white-50">NachoFernandez Tattoo</div>
+  <div class="mt-3 small text-white-50">NachoFernandez Tattoo • Chacabuco</div>
 </footer>
 
-<!-- MODAL BIENVENIDA (OPCIONAL - COMENTADO PARA ACELERAR) -->
-<!-- 
-<div class="modal fade" id="modalBienvenida" tabindex="-1">
+<!-- === MODAL DE BIENVENIDA (CON TEXTO ORIGINAL + ANIMACIÓN) === -->
+<div class="modal fade" id="modalBienvenida" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
+    <div class="modal-content custom-modal">
       <div class="modal-header border-0">
-        <h5 class="modal-title">⚡ Bienvenido ⚡</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title text-white fw-bold">Bienvenido a NachoFernandezTattoo</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        <p>Disfrutá de los diseños y animate a tatuarte</p>
+        <img src="assets/imagenes/fondo.png" class="logo-modal" alt="Logo" loading="lazy">
+        <p class="modal-text mt-3">
+          Gracias por visitar mi página. Espero que disfrutes la experiencia y encuentres lo que buscás. 
+          ¡No olvides revisar la galería de tatuajes y no dudes en consultar!
+        </p>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-outline-light px-4 py-2" data-bs-dismiss="modal" style="border-radius: 40px; border-color: #a855f7;">Explorar</button>
       </div>
     </div>
   </div>
 </div>
--->
 
-<!-- SCRIPTS: Bootstrap solo una vez -->
+<!-- SCRIPTS (SOLO LO ESENCIAL) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script minimal para lazy loading y smooth scroll -->
 <script>
   (function() {
-    // Lazy loading manual para imágenes
+    // MODAL AUTOMÁTICO (UNA VEZ, CON TEXTO ORIGINAL)
+    window.addEventListener('load', function() {
+      const modalElement = document.getElementById('modalBienvenida');
+      if (modalElement) {
+        const welcomeModal = new bootstrap.Modal(modalElement, {
+          backdrop: 'static',
+          keyboard: true
+        });
+        
+        // Pequeño delay para que no sea tan agresivo
+        setTimeout(() => {
+          welcomeModal.show();
+          
+          // Optimización de atributos
+          modalElement.addEventListener('shown.bs.modal', function() {
+            this.removeAttribute('inert');
+            this.setAttribute('aria-hidden', 'false');
+          });
+          
+          modalElement.addEventListener('hidden.bs.modal', function() {
+            this.setAttribute('inert', '');
+          });
+        }, 300);
+      }
+    });
+
+    // LAZY LOADING PARA IMÁGENES (MUY RÁPIDO)
     if ('IntersectionObserver' in window) {
-      const imgObserver = new IntersectionObserver((entries) => {
+      const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const img = entry.target;
             img.classList.add('loaded');
-            imgObserver.unobserve(img);
+            imageObserver.unobserve(img);
           }
         });
+      }, { rootMargin: '50px' });
+      
+      document.querySelectorAll('.lazy-img').forEach(img => {
+        imageObserver.observe(img);
       });
       
-      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-        img.classList.add('lazy');
-        imgObserver.observe(img);
-      });
-    }
-    
-    // Smooth scroll para enlaces
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-    
-    // Precarga solo el primer video, los demás solo cuando se vean
-    const videos = document.querySelectorAll('video[preload="none"]');
-    if ('IntersectionObserver' in window) {
+      // Videos con preload none
       const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -420,11 +504,41 @@
             videoObserver.unobserve(video);
           }
         });
-      });
+      }, { rootMargin: '100px' });
       
-      videos.forEach(video => videoObserver.observe(video));
+      document.querySelectorAll('video[preload="none"]').forEach(video => {
+        videoObserver.observe(video);
+      });
+    } else {
+      // Fallback para navegadores antiguos
+      document.querySelectorAll('.lazy-img').forEach(img => img.classList.add('loaded'));
     }
+    
+    // SMOOTH SCROLL TÁCTIL
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+    
+    // EFECTO TÁCTIL ADICIONAL (FEEDBACK)
+    const touchElements = document.querySelectorAll('.gallery-item, .video-item, .whatsapp-btn, .social-icons a');
+    touchElements.forEach(el => {
+      el.addEventListener('touchstart', function() {
+        this.style.transition = 'transform 0.1s';
+      }, { passive: true });
+    });
   })();
 </script>
+
+<!-- Precarga solo el primer video para que arranque rápido -->
+<link rel="preload" as="video" href="assets/videos/7.mp4">
 </body>
 </html>
