@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
   <title>NF • Nacho Fernandez Tattoo</title>
   
-  <!-- SOLO CRÍTICO: Bootstrap + iconos -->
+  <!-- Bootstrap + iconos -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   
-  <!-- Fuente rápida del sistema -->
+  <!-- Fuente rápida -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Animate.css solo lo esencial -->
+  <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
   
   <style>
@@ -59,7 +59,7 @@
       background: rgba(168, 85, 247, 0.1);
     }
     
-    /* === BOTÓN INFO FLOTANTE (INTERACCIÓN TÁCTIL) === */
+    /* === BOTÓN INFO FLOTANTE === */
     .info-btn {
       position: fixed;
       bottom: 20px;
@@ -78,13 +78,11 @@
       gap: 10px;
       border: 1px solid rgba(255,255,255,0.1);
       backdrop-filter: blur(5px);
-      transition: transform 0.15s, box-shadow 0.15s;
-      -webkit-touch-callout: none;
+      transition: transform 0.15s;
     }
     
     .info-btn:active {
       transform: scale(0.92);
-      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.6);
     }
     
     .info-btn i { font-size: 1.3rem; }
@@ -104,7 +102,7 @@
       margin: 0 auto 1rem;
     }
     
-    /* === HERO CAROUSEL (LIVIANO) === */
+    /* === HERO CAROUSEL === */
     .carousel-hero {
       max-height: 60vh;
       overflow: hidden;
@@ -136,7 +134,7 @@
       filter: drop-shadow(0 0 5px #a855f7);
     }
     
-    /* === GALERÍA DE IMÁGENES (CON EFECTO TÁCTIL) === */
+    /* === GALERÍA DE IMÁGENES === */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -151,23 +149,22 @@
       overflow: hidden;
       background: #1a1a1a;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.15s, box-shadow 0.15s;
       cursor: pointer;
+      transition: transform 0.15s;
     }
     
     .gallery-item:active {
       transform: scale(0.96);
-      box-shadow: 0 2px 8px #a855f7;
     }
     
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      pointer-events: none; /* Evita que el imagen bloquee el efecto táctil */
+      pointer-events: none;
     }
     
-    /* === GRID DE VIDEOS (CARGA BAJO DEMANDA) === */
+    /* === GRID DE VIDEOS === */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -183,6 +180,8 @@
       background: #000;
       box-shadow: 0 6px 15px rgba(0,0,0,0.7);
       transition: transform 0.15s;
+      position: relative;
+      cursor: pointer;
     }
     
     .video-item:active {
@@ -195,7 +194,87 @@
       object-fit: cover;
     }
     
-    /* === BOTÓN WHATSAPP (TÁCTIL) === */
+    /* Overlay de play para videos */
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      opacity: 0.8;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    
+    .video-item.playing .play-overlay {
+      opacity: 0;
+    }
+    
+    /* Lightbox para imágenes */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    .lightbox-modal.active {
+      display: flex;
+    }
+    
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      padding: 20px;
+      z-index: 10000;
+    }
+    
+    .lightbox-prev { left: 10px; }
+    .lightbox-next { right: 10px; }
+    
+    .lightbox-counter {
+      position: absolute;
+      bottom: 20px;
+      color: white;
+      font-size: 16px;
+    }
+    
+    /* === BOTÓN WHATSAPP === */
     .whatsapp-btn {
       background: #25D366;
       color: white;
@@ -207,17 +286,14 @@
       margin: 15px 0;
       font-size: 1.1rem;
       box-shadow: 0 8px 18px rgba(37, 211, 102, 0.3);
-      transition: transform 0.15s, box-shadow 0.15s;
-      border: none;
-      -webkit-touch-callout: none;
+      transition: transform 0.15s;
     }
     
     .whatsapp-btn:active {
       transform: scale(0.94);
-      box-shadow: 0 4px 12px #25D366;
     }
     
-    /* === FOOTER SOCIAL (TÁCTIL) === */
+    /* === FOOTER SOCIAL === */
     .footer-social {
       background: #0c0c0c;
       padding: 25px 16px 20px;
@@ -240,8 +316,7 @@
     .social-icons a {
       color: #fff;
       font-size: 2rem;
-      transition: color 0.2s, transform 0.1s;
-      -webkit-touch-callout: none;
+      transition: color 0.2s;
     }
     
     .social-icons a:active {
@@ -249,17 +324,12 @@
       transform: scale(0.9);
     }
     
-    /* === MODAL DE BIENVENIDA (CON TEXTO ORIGINAL) === */
+    /* === MODAL DE BIENVENIDA === */
     .custom-modal {
       background: #121212;
       border: 1px solid #a855f7;
       border-radius: 28px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-    }
-    
-    .modal-content-custom {
-      background: #121212;
-      color: #f0f0f0;
     }
     
     .logo-modal {
@@ -284,17 +354,7 @@
       .video-grid { grid-template-columns: repeat(3, 1fr); }
     }
     
-    /* === ANIMACIONES LIGERAS === */
-    .fade-touch {
-      animation: fadeTouch 0.5s ease;
-    }
-    
-    @keyframes fadeTouch {
-      0% { opacity: 0; transform: translateY(15px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* === LAZY LOADING SMOOTH === */
+    /* === LAZY LOADING === */
     .lazy-img {
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -331,7 +391,7 @@
   <i class="bi bi-person-circle"></i> <span>Información personal</span>
 </button>
 
-<!-- OFFCANVAS INFO (CON TEXTO ORIGINAL) -->
+<!-- OFFCANVAS INFO -->
 <div class="offcanvas offcanvas-start offcanvas-dark" tabindex="-1" id="offcanvasInfo">
   <div class="offcanvas-header border-bottom border-secondary">
     <h5 class="offcanvas-title text-white">Nacho Fernández</h5>
@@ -368,14 +428,14 @@
   </div>
 
   <!-- GALERÍA 1 -->
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/img2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/img3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/img4.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/img5.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/img6.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/img7.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+  <div class="gallery-grid" id="gallery1">
+    <div class="gallery-item" data-src="assets/imagenes/img1.jpeg"><img src="assets/imagenes/img1.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/img2.jpeg"><img src="assets/imagenes/img2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/img3.jpeg"><img src="assets/imagenes/img3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/img4.jpeg"><img src="assets/imagenes/img4.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/img5.jpeg"><img src="assets/imagenes/img5.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/img6.jpeg"><img src="assets/imagenes/img6.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/img7.jpeg"><img src="assets/imagenes/img7.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
   </div>
 
   <!-- DIVISOR -->
@@ -383,14 +443,32 @@
     <span><img src="assets/imagenes/logo.png" class="icon-img" alt="·" loading="lazy"></span>
   </div>
 
-  <!-- VIDEOS (SOLO 1 CARGA INICIAL) -->
+  <!-- VIDEOS -->
   <div class="video-grid">
-    <div class="video-item"><video src="assets/videos/7.mp4" autoplay loop muted playsinline preload="auto"></video></div>
-    <div class="video-item"><video src="assets/videos/9.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img2.jpeg"></video></div>
-    <div class="video-item"><video src="assets/videos/nuevo1.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img3.jpeg"></video></div>
-    <div class="video-item"><video src="assets/videos/5.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img4.jpeg"></video></div>
-    <div class="video-item"><video src="assets/videos/2.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img5.jpeg"></video></div>
-    <div class="video-item"><video src="assets/videos/3.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img6.jpeg"></video></div>
+    <div class="video-item">
+      <video src="assets/videos/7.mp4" loop muted playsinline preload="auto" poster="assets/imagenes/img1.jpeg"></video>
+      <div class="play-overlay"><i class="bi bi-play-circle"></i></div>
+    </div>
+    <div class="video-item">
+      <video src="assets/videos/9.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img2.jpeg"></video>
+      <div class="play-overlay"><i class="bi bi-play-circle"></i></div>
+    </div>
+    <div class="video-item">
+      <video src="assets/videos/nuevo1.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img3.jpeg"></video>
+      <div class="play-overlay"><i class="bi bi-play-circle"></i></div>
+    </div>
+    <div class="video-item">
+      <video src="assets/videos/5.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img4.jpeg"></video>
+      <div class="play-overlay"><i class="bi bi-play-circle"></i></div>
+    </div>
+    <div class="video-item">
+      <video src="assets/videos/2.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img5.jpeg"></video>
+      <div class="play-overlay"><i class="bi bi-play-circle"></i></div>
+    </div>
+    <div class="video-item">
+      <video src="assets/videos/3.mp4" loop muted playsinline preload="none" poster="assets/imagenes/img6.jpeg"></video>
+      <div class="play-overlay"><i class="bi bi-play-circle"></i></div>
+    </div>
   </div>
 
   <!-- DIVISOR -->
@@ -399,13 +477,13 @@
   </div>
 
   <!-- GALERÍA 2 -->
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="assets/imagenes/nueva1.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/nueva2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/nueva3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/nueva4.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/photo3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
-    <div class="gallery-item"><img src="assets/imagenes/photo2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+  <div class="gallery-grid" id="gallery2">
+    <div class="gallery-item" data-src="assets/imagenes/nueva1.jpeg"><img src="assets/imagenes/nueva1.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/nueva2.jpeg"><img src="assets/imagenes/nueva2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/nueva3.jpeg"><img src="assets/imagenes/nueva3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/nueva4.jpeg"><img src="assets/imagenes/nueva4.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/photo3.jpeg"><img src="assets/imagenes/photo3.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
+    <div class="gallery-item" data-src="assets/imagenes/photo2.jpeg"><img src="assets/imagenes/photo2.jpeg" loading="lazy" alt="tattoo" class="lazy-img"></div>
   </div>
 
   <!-- TURNOS -->
@@ -425,7 +503,7 @@
   <div class="mt-3 small text-white-50">NachoFernandez Tattoo • Chacabuco</div>
 </footer>
 
-<!-- === MODAL DE BIENVENIDA (CON TEXTO ORIGINAL + ANIMACIÓN) === -->
+<!-- MODAL DE BIENVENIDA -->
 <div class="modal fade" id="modalBienvenida" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content custom-modal">
@@ -447,98 +525,159 @@
   </div>
 </div>
 
-<!-- SCRIPTS (SOLO LO ESENCIAL) -->
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  (function() {
-    // MODAL AUTOMÁTICO (UNA VEZ, CON TEXTO ORIGINAL)
-    window.addEventListener('load', function() {
-      const modalElement = document.getElementById('modalBienvenida');
-      if (modalElement) {
-        const welcomeModal = new bootstrap.Modal(modalElement, {
-          backdrop: 'static',
-          keyboard: true
-        });
-        
-        // Pequeño delay para que no sea tan agresivo
-        setTimeout(() => {
-          welcomeModal.show();
-          
-          // Optimización de atributos
-          modalElement.addEventListener('shown.bs.modal', function() {
-            this.removeAttribute('inert');
-            this.setAttribute('aria-hidden', 'false');
-          });
-          
-          modalElement.addEventListener('hidden.bs.modal', function() {
-            this.setAttribute('inert', '');
-          });
-        }, 300);
-      }
-    });
-
-    // LAZY LOADING PARA IMÁGENES (MUY RÁPIDO)
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.classList.add('loaded');
-            imageObserver.unobserve(img);
-          }
-        });
-      }, { rootMargin: '50px' });
-      
-      document.querySelectorAll('.lazy-img').forEach(img => {
-        imageObserver.observe(img);
+(function() {
+  // MODAL AUTOMÁTICO
+  window.addEventListener('load', function() {
+    const modalElement = document.getElementById('modalBienvenida');
+    if (modalElement) {
+      const welcomeModal = new bootstrap.Modal(modalElement, {
+        backdrop: 'static',
+        keyboard: true
       });
       
-      // Videos con preload none
-      const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const video = entry.target;
-            video.preload = 'auto';
-            video.load();
-            videoObserver.unobserve(video);
-          }
-        });
-      }, { rootMargin: '100px' });
-      
-      document.querySelectorAll('video[preload="none"]').forEach(video => {
-        videoObserver.observe(video);
-      });
-    } else {
-      // Fallback para navegadores antiguos
-      document.querySelectorAll('.lazy-img').forEach(img => img.classList.add('loaded'));
+      setTimeout(() => {
+        welcomeModal.show();
+      }, 300);
     }
-    
-    // SMOOTH SCROLL TÁCTIL
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+  });
+
+  // LAZY LOADING
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add('loaded');
+          imageObserver.unobserve(img);
         }
       });
+    }, { rootMargin: '50px' });
+    
+    document.querySelectorAll('.lazy-img').forEach(img => {
+      imageObserver.observe(img);
     });
     
-    // EFECTO TÁCTIL ADICIONAL (FEEDBACK)
-    const touchElements = document.querySelectorAll('.gallery-item, .video-item, .whatsapp-btn, .social-icons a');
-    touchElements.forEach(el => {
-      el.addEventListener('touchstart', function() {
-        this.style.transition = 'transform 0.1s';
-      }, { passive: true });
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          if (video.preload !== 'auto') {
+            video.preload = 'auto';
+            video.load();
+          }
+          videoObserver.unobserve(video);
+        }
+      });
+    }, { rootMargin: '100px' });
+    
+    document.querySelectorAll('video[preload="none"]').forEach(video => {
+      videoObserver.observe(video);
     });
-  })();
+  }
+  
+  // LIGHTBOX
+  const lightboxModal = document.createElement('div');
+  lightboxModal.className = 'lightbox-modal';
+  lightboxModal.innerHTML = `
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-prev" id="lightboxPrev">&#10094;</span>
+    <span class="lightbox-next" id="lightboxNext">&#10095;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  `;
+  document.body.appendChild(lightboxModal);
+  
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  
+  let currentImages = [];
+  let currentIndex = 0;
+  
+  document.querySelectorAll('.gallery-item').forEach((item, index) => {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const gallery = this.closest('.gallery-grid');
+      currentImages = Array.from(gallery.querySelectorAll('.gallery-item')).map(el => el.dataset.src);
+      currentIndex = Array.from(gallery.querySelectorAll('.gallery-item')).indexOf(this);
+      
+      showImage(currentIndex);
+      lightboxModal.classList.add('active');
+    });
+  });
+  
+  function showImage(index) {
+    if (index >= 0 && index < currentImages.length) {
+      lightboxImg.src = currentImages[index];
+      lightboxCounter.textContent = (index + 1) + ' / ' + currentImages.length;
+    }
+  }
+  
+  lightboxClose.addEventListener('click', () => lightboxModal.classList.remove('active'));
+  
+  lightboxPrev.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage(currentIndex);
+  });
+  
+  lightboxNext.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage(currentIndex);
+  });
+  
+  lightboxModal.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) lightboxModal.classList.remove('active');
+  });
+  
+  // Swipe táctil
+  let touchStartX = 0;
+  lightboxModal.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  lightboxModal.addEventListener('touchend', (e) => {
+    if (!lightboxModal.classList.contains('active')) return;
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+      } else {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      }
+      showImage(currentIndex);
+    }
+  }, { passive: true });
+  
+  // REPRODUCIR VIDEOS
+  document.querySelectorAll('.video-item video').forEach(video => {
+    const item = video.closest('.video-item');
+    
+    if (video.autoplay) item.classList.add('playing');
+    
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (video.paused) {
+        video.play().then(() => item.classList.add('playing'));
+      } else {
+        video.pause();
+        item.classList.remove('playing');
+      }
+    });
+    
+    video.addEventListener('ended', () => item.classList.remove('playing'));
+  });
+})();
 </script>
 
-<!-- Precarga solo el primer video para que arranque rápido -->
+<!-- Precarga primer video -->
 <link rel="preload" as="video" href="assets/videos/7.mp4">
 </body>
 </html>
